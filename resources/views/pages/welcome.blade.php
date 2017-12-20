@@ -22,20 +22,15 @@
     </div>
     <div class="row">
         <div class="col-md-8" >  <!-- 8/12 griduri -->
-            <div class="post">
-                <h3>Post Title</h3>
-                <p>Lorem iopsum ahahahaa...</p>
-                <a href="#" class="btn btn-primary">read More</a>
-            </div>
-            <hr>
-            <div class="post">
-                <h3>Post Title</h3>
-                <p>Lorem iopsum ahahahaa...</p>
-                <a href="#" class="btn btn-primary">read More</a>
-            </div> 
-            <hr>
-              
+            @foreach($posts as $post)
+                <div class="post">
+                    <h3>{{ $post->title }}</h3>
+                    <p>{{ substr($post->body, 0, 120) }}</p>
+                    <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary">Read More</a>
+                </div> 
+                <hr>
 
+            @endforeach
         </div>
 
         <div class="col-md-3 col-md-offset-1"> <!-- 3 grid-uri, una pauza -->
