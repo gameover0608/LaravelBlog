@@ -34,12 +34,7 @@
                 <a href="#" class="btn btn-primary">read More</a>
             </div> 
             <hr>
-            <div class="post">
-                @foreach($posts as $post)
-                  <h3> {{ $post->title }} </h3>
-                  <p> {{ $post->body }} </p>
-                @endforeach
-            </div>     
+              
 
         </div>
 
