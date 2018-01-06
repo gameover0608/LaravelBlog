@@ -11,6 +11,11 @@
 		</div>
 		<div class="col-md-4">
 			<dl class="row" style="background-color: #e6e6e6;">
+			  <dt class="col-sm-6">Url:</dt>
+			  <dd class="col-sm-6">
+			  	<a href="{!! url($post->slug) !!}">{!! url($post->slug) !!}</a>
+			  </dd>
+			  <hr>
 			  <dt class="col-sm-6">Created at:</dt>
 			  <dd class="col-sm-6">
 			  	{!! date('M jS Y, h:iA',strtotime($post->created_at)) !!}

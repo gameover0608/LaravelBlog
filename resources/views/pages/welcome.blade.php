@@ -25,7 +25,7 @@
             @foreach($posts as $post)
                 <div class="post">
                     <h3>{{ $post->title }}</h3>
-                    <p>{{ substr($post->body, 0, 120) }}</p>
+                    <p>{{ substr($post->body, 0, 120) }} {{ strlen($post->body) > 150 ? '...' : '' }} </p>
                     <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary">Read More</a>
                 </div> 
                 <hr>

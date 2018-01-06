@@ -20,6 +20,9 @@
     			{{ Form::label('body','Content:') }}
     			{{ Form::textarea('body',null,['class' => 'form-control','required' => '']) }}
 
+    			{{ Form::label('slug','Slug:') }}
+    			{{ Form::text('slug',null,['class' => 'form-control', 'required' => '','minlength' => '5','maxlength' => '250']) }}
+
     			{{ Form::submit('Submit Post!',['class' => 'btn-success btn-lg btn-block','style' => 'margin-top:20px']) }}
 			{!! Form::close() !!}
 		</div>

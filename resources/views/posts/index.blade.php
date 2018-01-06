@@ -23,7 +23,7 @@
 					@foreach($posts as $post)
 						<tbody>
 							<td>{{ $post->id }}</td>
-							<td>{{ $post->title }}</td>
+							<td style="width:130px;">{{ $post->title }}</td>
 							<td>{{ substr($post->body,0,200)}}</td>
 							<td><a class="btn btn-default" href="{{ route('posts.show',[$post->id]) }}">View</a><a class="btn btn-default" href="{{ route('posts.edit',[$post->id]) }}">Edit</a></td>
 						</tbody>

@@ -13,6 +13,9 @@
 			{{ Form::label('body', "Body:", ['class' => 'form-spacing-top']) }}
 			{{ Form::textarea('body', null, ['class' => 'form-control']) }}
 
+			{{ Form::label('slug','Slug:') }}
+    		{{ Form::text('slug',null,['class' => 'form-control', 'required' => '','minlength' => '5','maxlength' => '250']) }}
+
 			{{ Form::submit('Save Changes', ['class' => 'btn btn-success btn-block btn-lg']) }}
 
 			{{ Form::close() }}
