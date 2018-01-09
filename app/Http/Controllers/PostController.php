@@ -65,7 +65,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);                // finds the id, laravel feature
+        $post = Post::find($id); 
+        
+
+                       
+
         return view('posts/show')->withPost($post);   //same thing with with('post',$post) -> adauga id ul la sfarsitul linkului
     }
 

@@ -15,7 +15,7 @@
 
 
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="posts/14" role="button">My first post</a>
+                    <a class="btn btn-primary btn-lg" href="blog/first-post" role="button">My first post</a>
                 </p>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <div class="post">
                     <h3>{{ $post->title }}</h3>
                     <p>{{ substr($post->body, 0, 120) }} {{ strlen($post->body) > 150 ? '...' : '' }} </p>
-                    <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary">Read More</a>
+                    <a href="{{ route('blog.single',$post->slug) }}" class="btn btn-primary">Read More</a>
                 </div> 
                 <hr>
 
