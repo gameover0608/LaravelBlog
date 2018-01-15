@@ -6,10 +6,13 @@
 
 <body>
 
-@include('_nav')    
+
+@include("_nav")
+   
 
 <div class="container">   <!-- container header -->
 	@include("_messages")
+	
     @yield('content')
 
     @include("_footer")

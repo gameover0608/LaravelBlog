@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,18 +17,34 @@
             <a class="nav-link" href="/contact">Contact</a>
           </li>
     </ul>
+          @if(Auth::check())
     
-
-    <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
+                <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    My account ( {{ Auth::user()->name }} )
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{route('posts.index')}}">Posts</a>
     <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
+    <!--<a class="dropdown-item" href="{{url('/logout')}}">Logout</a> -->
+    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+    Logout
+    </a>    
+    <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+    </form>
   </div>
+</div>
+          @else           
+  
+             <div class="btn btn-light btn-lg">
+      <a href=" {{ url('login') }} ">Login</a>
+    </div>
+    <div class="btn btn-light btn-lg">
+      <a href=" {{ url('register') }} ">Register</a>
+    </div>
+
+          @endif
 </div>
 </div>
 </nav>

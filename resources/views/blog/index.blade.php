@@ -16,7 +16,7 @@
 			<h2>{{ $post->title }}</h2>
 			<h5>Created at: {{ date('D j,Y', strtotime($post->created_at)) }}</h5>
 			<p> {{ substr($post->body,0,100) }} {{ strlen($post->body) > 100 ? '...' : '' }} </p>
-			<a href=" {{ route('blog.single', $post->slug) }} ">Read More</a>
+			<a href=" {{ route('blog.single', $post->slug) }} " class="btn btn-primary">Read More</a>
 			<hr>
 		
 		</div>
