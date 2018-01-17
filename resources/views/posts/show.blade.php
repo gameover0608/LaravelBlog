@@ -8,12 +8,19 @@
 			<h2> {{ $post->title }} </h2>
 			<hr>
 			<p> {{ $post->body }} </p>
+			<hr>
+			
 		</div>
 		<div class="col-md-4">
 			<dl class="row" style="background-color: #e6e6e6; word-wrap: break-word;">
 			  <dt class="col-sm-6">Url:</dt>
 			  <dd class="col-sm-6">
 			  	<a href="{!! url('blog/'.$post->slug) !!}">{!! url('blog/'.$post->slug) !!}</a>
+			  </dd>
+			  <hr>
+			  <dt class="col-sm-6">Category:</dt>
+			  <dd class="col-sm-6">
+			  	<p>{{ $post->category['name'] }}</p>
 			  </dd>
 			  <hr>
 			  <dt class="col-sm-6">Created at:</dt>

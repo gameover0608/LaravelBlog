@@ -8,6 +8,8 @@
 			<h2> {{ $post->title }} </h2>
 			<hr>
 			<p> {{ $post->body }} </p>
+			<hr>
+			<p>Category: {!! $post->category['name'] !!} </p>
 		</div>
 		
 	</div>

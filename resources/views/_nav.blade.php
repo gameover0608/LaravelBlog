@@ -19,30 +19,30 @@
     </ul>
           @if(Auth::check())
     
-                <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    My account ( {{ Auth::user()->name }} )
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="{{route('posts.index')}}">Posts</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <!--<a class="dropdown-item" href="{{url('/logout')}}">Logout</a> -->
-    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-    Logout
-    </a>    
-    <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-    {{ csrf_field() }}
-    </form>
-  </div>
-</div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My account ( {{ Auth::user()->name }} )
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{{route('posts.index')}}">Posts</a>
+              <a class="dropdown-item" href=" {{route('categories.index')}} ">Categories</a>
+              <!--<a class="dropdown-item" href="{{url('/logout')}}">Logout</a> -->
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                Logout
+              </a>    
+              <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
+            </div>
+          </div>
           @else           
   
-             <div class="btn btn-light btn-lg">
-      <a href=" {{ url('login') }} ">Login</a>
-    </div>
-    <div class="btn btn-light btn-lg">
-      <a href=" {{ url('register') }} ">Register</a>
-    </div>
+          <div class="btn btn-light btn-lg">
+            <a href=" {{ url('login') }} ">Login</a>
+          </div>
+          <div class="btn btn-light btn-lg">
+            <a href=" {{ url('register') }} ">Register</a>
+          </div>
 
           @endif
 </div>

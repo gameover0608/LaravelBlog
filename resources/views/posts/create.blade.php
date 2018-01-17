@@ -23,6 +23,14 @@
     			{{ Form::label('slug','Slug:') }}
     			{{ Form::text('slug',null,['class' => 'form-control', 'required' => '','minlength' => '5','maxlength' => '250']) }}
 
+    			{{ Form::label('category_id','Category:')}}
+    			<select class="form-control" name="category_id">
+    				@foreach($categories as $category)
+    					<option value="{{ $category->id }}" class="form-control">{{$category->name}}</option>
+    				@endforeach	
+    				
+    			</select>
+    			
     			{{ Form::submit('Submit Post!',['class' => 'btn-success btn-lg btn-block','style' => 'margin-top:20px']) }}
 			{!! Form::close() !!}
 		</div>

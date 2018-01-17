@@ -16,6 +16,9 @@
 			{{ Form::label('slug','Slug:') }}
     		{{ Form::text('slug',null,['class' => 'form-control', 'required' => '','minlength' => '5','maxlength' => '250']) }}
 
+    		{{ Form::label('category','Category: ') }}
+    		{{ Form::select('category_id', $categories, $post->category_id,['class' => 'form-control']) }}
+
 			{{ Form::submit('Save Changes', ['class' => 'btn btn-success btn-block btn-lg']) }}
 
 			{{ Form::close() }}

@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Categories routes
+
+Route::resource('categories', 'CategoryController',['except' => 'create']);
+
 
 //Authentication routes:
 

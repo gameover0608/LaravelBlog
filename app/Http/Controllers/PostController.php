@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use Session;
 
 class PostController extends Controller
@@ -19,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id','desc')->paginate(3);
+        $posts = Post::orderBy('id','desc')->paginate(10);
         return view('posts/index')->withPosts($posts);
     }
 
@@ -30,7 +31,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts/create');
+        $categories = Category::all();
+
+        return view('posts/create')->withCategories($categories);
     }
 
     /**
@@ -53,6 +56,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
 
         Session::flash('success','The post has been saved!');
 
@@ -86,8 +90,14 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $categories = Category::all();
+        $cats = [];
 
-        return view('posts/edit')->withPost($post);
+        foreach($categories as $category){
+            $cats[$category->id] = $category->name;
+        }
+
+        return view('posts/edit')->withPost($post)->withCategories($cats);
     }
 
     /**
@@ -102,7 +112,8 @@ class PostController extends Controller
         $this->validate($request,[
             'title' => 'required|max:250',
             'body'  => 'required',
-            'slug' => 'required|alpha_dash|max:250|min:5'
+            'slug' => 'required|alpha_dash|max:250|min:5',
+            'category_id' => 'integer'
         ]);
 
         $post = Post::find($id);
@@ -110,6 +121,7 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->slug = $request->input('slug');
+        $post->category_id = $request->input('category_id');
 
         $post->save();
 
